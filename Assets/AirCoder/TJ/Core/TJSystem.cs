@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AirCoder.TJ.Core.Jobs;
 using AirCoder.TJ.Core.Sequences;
+using Core;
 using UnityEngine;
 
 namespace AirCoder.TJ.Core

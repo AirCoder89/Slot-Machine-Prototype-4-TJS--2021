@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ namespace Components
 {
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(Outline))]
-    public class SpinButton : MonoBehaviour, IPointerDownHandler,IPointerUpHandler,IPointerClickHandler
+    public class SpinButton : BaseMonoBehaviour, IPointerDownHandler,IPointerUpHandler,IPointerClickHandler
     {
         //- exposed variables
         [Header("Establishing:")] 
@@ -24,6 +25,8 @@ namespace Components
         public UnityEvent<bool> onHoldClick;
 
         //- getter
+        public bool IsPressed => isPressed;
+
         private Image _background
         {
             get
@@ -48,19 +51,22 @@ namespace Components
         private bool _isMouseDown;
         private bool _isHoldComplete;
         
+        protected override void ReleaseReferences()
+        {
+            onClick = null;
+            onHoldClick = null;
+            _bg = null;
+            _line = null;
+        }
+        
         private void Start()
         {
             _timeCounter = 0f;
             _isMouseDown = false;
             _isHoldComplete = false;
             UpdateShape();
-            
-            onClick.AddListener(TestClick);
-            onHoldClick.AddListener(TestHoldClick);
         }
 
-        public void TestClick() => Debug.Log($"Click !");
-        public void TestHoldClick(bool inState) => Debug.Log($"Hold Click {inState}");
         private void UpdateShape()
         {
             _background.color = isPressed ? pressedColorState : Color.white;
@@ -106,5 +112,7 @@ namespace Components
             }
             else if(!_isHoldComplete) onClick?.Invoke();
         }
+
+      
     }
 }

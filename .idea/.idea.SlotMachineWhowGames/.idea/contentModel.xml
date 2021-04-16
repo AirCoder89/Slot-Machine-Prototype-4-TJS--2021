@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\AirCoder\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\AirCoder\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_SlotMachineWhowGames.-303759115.00" t="ExcludeRecursive" />
-    <e p="E:\unity Projects\SlotMachineWhowGames0\SlotMachineWhowGames" t="IncludeRecursive">
+    <e p="C:\Users\SBS\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\SBS\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_SlotMachineWhowGames.-1951424636.00" t="ExcludeRecursive" />
+    <e p="D:\Project2020\GitHub\SlotMachineWhowGames" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -24,7 +24,6 @@
           <e p="ReadMe.txt" t="Include" />
           <e p="TJ" t="Include">
             <e p="Core" t="Include">
-              <e p="BaseMonoBehaviour.cs" t="Include" />
               <e p="Ease" t="Include">
                 <e p="Easing.cs" t="Include" />
               </e>
@@ -67,19 +66,34 @@
             <e p="ViewFades.cs" t="Include" />
           </e>
           <e p="Core" t="Include">
-            <e p="AssetLoader.cs" t="Include" />
+            <e p="BaseMonoBehaviour.cs" t="Include" />
+            <e p="GenerateType.cs" t="Include" />
+            <e p="Machine" t="Include">
+              <e p="MachineConfig.cs" t="Include" />
+              <e p="Slot.cs" t="Include" />
+              <e p="SlotMachine.cs" t="Include" />
+            </e>
             <e p="MachineController.cs" t="Include" />
-            <e p="Slot.cs" t="Include" />
+            <e p="Symbols" t="Include">
+              <e p="SymbolData.cs" t="Include" />
+              <e p="SymbolsMap.cs" t="Include" />
+              <e p="SymbolType.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Helper" t="Include">
+            <e p="Addressable" t="Include">
+              <e p="AssetsLoader.cs" t="Include" />
+              <e p="AssetsSpawner.cs" t="Include" />
+              <e p="IAsset.cs" t="Include" />
+            </e>
+            <e p="Vector2Int.cs" t="Include" />
           </e>
         </e>
       </e>
-      <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="SlotMachineWhowGames.sln" t="IncludeFlat" />
-      <e p="Temp" t="ExcludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-      </e>
+      <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
   </component>
 </project>

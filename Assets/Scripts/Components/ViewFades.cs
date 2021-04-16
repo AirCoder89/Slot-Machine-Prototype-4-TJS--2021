@@ -1,11 +1,12 @@
 ﻿using AirCoder.TJ.Core;
 using AirCoder.TJ.Core.Extensions;
+using Core;
 using UnityEngine;
 
 namespace Components
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class ViewFades : MonoBehaviour
+    public class ViewFades : BaseMonoBehaviour
     {
         //- exposed variables
         [Header("Establishing")] 
@@ -26,6 +27,11 @@ namespace Components
         //- private variables
         private CanvasGroup _group;
         
+        protected override void ReleaseReferences()
+        {
+            _group = null;
+        }
+        
         [ContextMenu("Fade In")]
         public void FadeIn()
             => _canvasGroup.TweenOpacity(alphaRange.y, duration).SetEase(ease).Play();
@@ -33,5 +39,7 @@ namespace Components
         [ContextMenu("Fade Out")]
         public void FadeOut()
             => _canvasGroup.TweenOpacity(alphaRange.x, duration).SetEase(ease).Play();
+
+        
     }
 }

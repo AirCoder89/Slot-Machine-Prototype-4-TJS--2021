@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AirCoder.TJ.Core
+namespace Core
 {
     public abstract class BaseMonoBehaviour : MonoBehaviour
     {

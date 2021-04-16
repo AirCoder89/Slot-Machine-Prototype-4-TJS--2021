@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782db91e70a749eb8bb95a4a2399755b, type: 3}
+  m_Name: DefaultSymbolsMap
+  m_EditorClassIdentifier: 
+  symbols:
+  - type: 0
+    reference:
+      m_AssetGUID: 6c7ea2529d85bfb448e303a42136c08b
+      m_SubObjectName: s01-Normal
+    sprite: {fileID: 0}
+  - type: 1
+    reference:
+      m_AssetGUID: 086458a6519948d4988b9051966f7d74
+      m_SubObjectName: s02-Normal
+    sprite: {fileID: 0}
+  - type: 2
+    reference:
+      m_AssetGUID: b539d7ad4b5c7294e88309dd4fc6fa46
+      m_SubObjectName: s03-Normal
+    sprite: {fileID: 0}
+  - type: 3
+    reference:
+      m_AssetGUID: 68f8ff4b106846c49badeca2c9a0078e
+      m_SubObjectName: s04-Normal
+    sprite: {fileID: 0}
+  - type: 4
+    reference:
+      m_AssetGUID: 136ffc8e9ef08184eb15a7c75a7c3687
+      m_SubObjectName: s05-Normal
+    sprite: {fileID: 0}
+  - type: 5
+    reference:
+      m_AssetGUID: e26483cda8ce1604ca0511706c1304db
+      m_SubObjectName: s06-Normal_0
+    sprite: {fileID: 0}
+  - type: 6
+    reference:
+      m_AssetGUID: 7aaed8626f2734a44b7cb49b8a4e35f8
+      m_SubObjectName: s07-Normal_0
+    sprite: {fileID: 0}
+  - type: 7
+    reference:
+      m_AssetGUID: c331aa4224d0de94bb669e446e7a81d4
+      m_SubObjectName: s08-Normal_0
+    sprite: {fileID: 0}
+  - type: 8
+    reference:
+      m_AssetGUID: e92e74379783977439832045e0697f61
+      m_SubObjectName: s09-Normal_0
+    sprite: {fileID: 0}
+  - type: 9
+    reference:
+      m_AssetGUID: 9d4725132c1c39d4792bd54c90babbec
+      m_SubObjectName: s10-Normal_0
+    sprite: {fileID: 0}
