@@ -22,9 +22,11 @@ namespace Core
         [SerializeField] private Vector2Int dimension;
         
         //- private variables
-
+        private bool _isRun;
+        
         protected override void ReleaseReferences()
         {
+            slotMachine.onEstablished -= Launch;
             symbolsMap.ReleaseReferences();
             symbolsMap = null;
             slotMachine = null;
@@ -39,19 +41,26 @@ namespace Core
         private void Start()
         {
             //- entry point!
-            Debug.Log($"Start Controller");
+            slotMachine.onEstablished += Launch;
             slotMachine.Initialize();
             StartLoadingSymbols();
         }
 
         private void StartLoadingSymbols()
         {
-            Debug.Log($"StartLoading Symbols");
-            symbolsMap.LoadAllSymbols((() =>
-            {
-                Debug.Log($"Loading Symbols Completed !!");
-                slotMachine.GenerateSlots(generateType, dimension);
-            }));
+            symbolsMap.LoadAllSymbols(() => { slotMachine.GenerateSlots(generateType, dimension); });
+        }
+
+        private void Launch()
+        {
+            //- this will be called after the slot machine established
+            _isRun = true;
+        }
+        
+        private void Update()
+        {
+            if(!_isRun) return;
+            slotMachine.Tick(Time.deltaTime);
         }
     }
 }

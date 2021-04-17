@@ -27,15 +27,17 @@ namespace Components
         //- getter
         public bool IsPressed => isPressed;
 
-        private Image _background
+        private Button _btn;
+        private Button _button
         {
             get
             {
-                if (_bg == null) _bg = GetComponent<Image>();
-                return _bg;
+                if (_btn == null) _btn = GetComponent<Button>();
+                return _btn;
             }
         }
-        public Outline _outline
+        
+        private Outline _outline
         {
             get
             {
@@ -45,17 +47,27 @@ namespace Components
         }
         
         //- private variables
-        private Image _bg;
         private Outline _line;
         private float _timeCounter;
         private bool _isMouseDown;
         private bool _isHoldComplete;
+        private bool _isInteractable;
+
+        public bool IsInteractable
+        {
+            get => _isInteractable;
+            set
+            {
+                _isInteractable = value;
+                _button.interactable = _isInteractable;
+            }
+        }
         
         protected override void ReleaseReferences()
         {
             onClick = null;
             onHoldClick = null;
-            _bg = null;
+            _btn = null;
             _line = null;
         }
         
@@ -69,7 +81,7 @@ namespace Components
 
         private void UpdateShape()
         {
-            _background.color = isPressed ? pressedColorState : Color.white;
+            _button.image.color = isPressed ? pressedColorState : Color.white;
             _outline.enabled = isPressed;
         }
 

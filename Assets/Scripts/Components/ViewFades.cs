@@ -31,6 +31,9 @@ namespace Components
         {
             _group = null;
         }
+
+        public void ShowImmediately() => _canvasGroup.alpha = 1f;
+        public void HideImmediately() => _canvasGroup.alpha = 0f;
         
         [ContextMenu("Fade In")]
         public void FadeIn()

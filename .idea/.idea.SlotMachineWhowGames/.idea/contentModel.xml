@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\SBS\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\SBS\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_SlotMachineWhowGames.-1951424636.00" t="ExcludeRecursive" />
-    <e p="D:\Project2020\GitHub\SlotMachineWhowGames" t="IncludeRecursive">
+    <e p="C:\Users\AirCoder\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\AirCoder\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_SlotMachineWhowGames.1260907629.00" t="ExcludeRecursive" />
+    <e p="E:\unity Projects\GitHub\SlotMachineWhowGames" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -67,6 +67,7 @@
           </e>
           <e p="Core" t="Include">
             <e p="BaseMonoBehaviour.cs" t="Include" />
+            <e p="Column.cs" t="Include" />
             <e p="GenerateType.cs" t="Include" />
             <e p="Machine" t="Include">
               <e p="MachineConfig.cs" t="Include" />
@@ -90,10 +91,13 @@
           </e>
         </e>
       </e>
+      <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="SlotMachineWhowGames.sln" t="IncludeFlat" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
     </e>
   </component>
 </project>

@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de77c3ae3f324b6e982bcb073d847b28, type: 3}
   m_Name: Default Machine Config
   m_EditorClassIdentifier: 
-  spacing: {x: 10, y: 10}
+  delayAmongSpin: 0.3
+  spacing: {x: 5, y: 0}
   padding: {x: 0, y: 0}
+  speed: 1.8
   startSpinEase: 0
-  endSpinEase: 0
-  duration: 0
+  endSpinEase: 30
+  duration: 1.3
   useBlurEffect: 0
