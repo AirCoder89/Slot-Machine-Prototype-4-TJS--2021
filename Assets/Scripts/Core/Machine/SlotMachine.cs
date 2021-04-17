@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Components;
+using Core.Audio;
 using Helper.Addressable;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Random = UnityEngine.Random;
 using Vector2Int = Helper.Vector2Int;
 
 namespace Core.Machine
@@ -17,7 +19,8 @@ namespace Core.Machine
         [SerializeField] private AssetReference slotReference;
         [SerializeField] private RectTransform slotsHolder;
         [SerializeField] private SpinButton spinBtn;
-        [SerializeField] private ViewFades rowsView;
+        [SerializeField] private ViewFades viewFades;
+        [SerializeField] private ViewTweener viewTweener;
         
         //-events
         public event Action onEstablished;
@@ -36,7 +39,8 @@ namespace Core.Machine
         public MachineConfig Config => config;
         protected override void ReleaseReferences()
         {
-            rowsView = null;
+            viewTweener = null;
+            viewFades = null;
             spinBtn = null;
             slotsHolder = null;
             config = null;
@@ -49,50 +53,156 @@ namespace Core.Machine
         
         public void Initialize()
         {
-            Debug.Log($"Initialize Machine");
             spinBtn.onClick.AddListener(Spin);
             spinBtn.onHoldClick.AddListener(HoldSpin);
             spinBtn.IsInteractable = false;
             _isAutoSpin = spinBtn.IsPressed;
-            rowsView.HideImmediately();
+            viewFades.HideImmediately();
+            viewTweener.CloseImmediately();
         }
 
-        public void Show() => rowsView.FadeIn();
-        public void Hide() => rowsView.FadeOut();
+        [ContextMenu("Show")]
+        public void Show()
+        {
+            viewFades.FadeIn();
+            viewTweener.Open();
+        }
+
+        [ContextMenu("Hide")]
+        public void Hide()
+        {
+            viewFades.FadeOut();
+            viewTweener.Close();
+        }
+        
+        private IEnumerator WaitAndServe(float inDelay, Action inService)
+        {
+            yield return new WaitForSeconds(inDelay);
+            inService?.Invoke();
+        }
         
         private void HoldSpin(bool inStatus)
         {
-            Debug.Log($"Hold Spin {inStatus}");
             _isAutoSpin = inStatus;
             if(_isAutoSpin) Spin();
-            else StopSpinning();
+            else StopSpinningOneShot();
         }
 
         private void Spin()
         {
-            if(!_canSpin) return;
-            _canSpin = false;
-            foreach (var column in _columns)
-                column.Spin();
+            if (!_canSpin)
+            {
+                if (config.forceStopSpin) StopSpinningOneShot();
+                return;
+            }
+
+            if (Config.enableAudio)
+            {
+                MachineController.Audio.Play(SfxList.SpinBtn, false);
+                MachineController.Audio.Play(SfxList.Spinning, false);
+            }
+            switch (Config.startSpinning)
+            {
+                case SpinningType.OneShot : StartSpinningOneShot(); break;
+                case SpinningType.Individually : StartSpinningIndividually(Config.individuallyDelay); break;
+            }
         }
 
+        private void StartSpinningOneShot()
+        {
+            _canSpin = false;
+            spinBtn.UpdateShape(true);
+            foreach (var column in _columns)
+                column.Spin();
+            StartCountingSpinningDuration();
+        }
+
+        private void StartSpinningIndividually(float inDelay)
+        {
+            _canSpin = false;
+            spinBtn.UpdateShape(true);
+            SpinColumn(0, inDelay);
+        }
+
+        private void SpinColumn(int index, float inDelay)
+        {
+            if (index >= _columns.Count)
+            {
+                StartCountingSpinningDuration();
+                return;
+            }
+            
+            _columns[index].Spin();
+            StartCoroutine(WaitAndServe(inDelay, () =>
+            {
+                index++;
+                SpinColumn(index, inDelay);
+            }));
+        }
+
+        private void StartCountingSpinningDuration()
+        {
+            var duration = Random.Range(Config.spinningDurationRange.x, Config.spinningDurationRange.y);
+            StartCoroutine(WaitAndServe(duration, StopSpinning));
+        }
+        
         private void StopSpinning()
         {
+            switch (Config.endSpinning)
+            {
+                case SpinningType.OneShot : StopSpinningOneShot(); break;
+                case SpinningType.Individually : StopSpinningIndividually(Config.individuallyDelay); break;
+            }
+        }
+
+        private void StopSpinningOneShot()
+        {
+            StopAllCoroutines();
+            spinBtn.UpdateShape(false);
+            _canSpin = true;
+            if(Config.enableAudio) MachineController.Audio.Play(SfxList.EndSpinning);
             foreach (var column in _columns)
                 column.Stop(SpinComplete);
-            _canSpin = true;
+        }
+
+        private void StopSpinningIndividually(float inDelay)
+        {
+            StopAllCoroutines();
+            StopColumn(0, inDelay);
+        }
+
+        private void StopColumn(int index, float inDelay)
+        {
+            if (index >= _columns.Count)
+            {
+                spinBtn.UpdateShape(false);
+                _canSpin = true;
+                return;
+            }
+
+            var pitch = (index / 20f) + Config.endSpinPitchMultiplier;
+            var isLastColumn = index == _columns.Count - 1;
+            if (isLastColumn)
+            {
+                _columns[index].Stop(SpinComplete);
+                if(Config.enableAudio) MachineController.Audio.Play(SfxList.EndSpinning, true, pitch);
+            }
+            else
+            {
+                _columns[index].Stop(null);
+                if(Config.enableAudio) MachineController.Audio.Play(SfxList.EndSpinning, false, pitch);
+            }
+            StartCoroutine(WaitAndServe(inDelay, () =>
+            {
+                index++;
+                StopColumn(index, inDelay);
+            }));
         }
         
         private void SpinComplete()
         {
             _canSpin = true;
-            if (_isAutoSpin) StartCoroutine(WaitAndSpin(Config.delayAmongSpin));
-        }
-
-        private IEnumerator WaitAndSpin(float inDelay)
-        {
-            yield return new WaitForSeconds(inDelay);
-            Spin();
+            if (_isAutoSpin) StartCoroutine(WaitAndServe(Config.autoSpinDelay, Spin));
         }
 
         private void ClearMachine()
@@ -240,19 +350,12 @@ namespace Core.Machine
             spinBtn.IsInteractable = true;
             _canSpin = true;
             Show();
+            spinBtn.GetComponent<ViewFades>().FadeIn();
             onEstablished?.Invoke();
         }
 
         public void Tick(float deltaTime)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                StopSpinning();
-            }
-            
-            foreach (var column in _columns)
-                column.Tick(deltaTime);
-        }
+            => _columns.ForEach(column => { column.Tick(deltaTime); });
 
     }
     

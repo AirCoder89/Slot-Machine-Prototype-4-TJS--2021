@@ -62,7 +62,7 @@ namespace Core
         {
             if(!_isSpin) return;
                 _isSpin = false;
-                _rectTransform.anchoredPosition = Vector2.zero;
+                _rectTransform.anchoredPosition = new Vector2(0f, _machine.Config.endSpinYOffset);
                 _rectTransform.TweenAnchorPosition(new Vector2(_rectTransform.anchoredPosition.x, -_slotSize.Value.y),
                     _machine.Config.duration).SetEase(_machine.Config.endSpinEase).OnComplete(callback).Play();
         }

@@ -10,6 +10,8 @@ namespace Components
     {
         //- exposed variables
         [Header("Establishing")] 
+        [SerializeField] private bool hideOnStart;
+        [SerializeField] private bool autoFadeIn;
         [SerializeField][Range(0f,5f)] private float duration;
         [SerializeField] private EaseType ease;
         [SerializeField] private Vector2 alphaRange = new Vector2(0f,1f);
@@ -32,9 +34,19 @@ namespace Components
             _group = null;
         }
 
-        public void ShowImmediately() => _canvasGroup.alpha = 1f;
-        public void HideImmediately() => _canvasGroup.alpha = 0f;
-        
+        public void ShowImmediately() => _canvasGroup.alpha = alphaRange.y;
+        public void HideImmediately() => _canvasGroup.alpha = alphaRange.x;
+
+        private void Awake()
+        {
+            if(hideOnStart) HideImmediately();
+        }
+
+        private void Start()
+        {
+            if(autoFadeIn) FadeIn();
+        }
+
         [ContextMenu("Fade In")]
         public void FadeIn()
             => _canvasGroup.TweenOpacity(alphaRange.y, duration).SetEase(ease).Play();

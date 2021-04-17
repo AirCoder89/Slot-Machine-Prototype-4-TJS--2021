@@ -76,13 +76,13 @@ namespace Components
             _timeCounter = 0f;
             _isMouseDown = false;
             _isHoldComplete = false;
-            UpdateShape();
+            UpdateShape(isPressed);
         }
 
-        private void UpdateShape()
+        public void UpdateShape(bool inStatus)
         {
-            _button.image.color = isPressed ? pressedColorState : Color.white;
-            _outline.enabled = isPressed;
+            _button.image.color = inStatus ? pressedColorState : Color.white;
+            _outline.enabled = inStatus;
         }
 
         private void Update()
@@ -99,7 +99,7 @@ namespace Components
             _isHoldComplete = true;
             isPressed = !isPressed;
             onHoldClick?.Invoke(isPressed);
-            UpdateShape();
+            UpdateShape(isPressed);
         }
         
         public void OnPointerDown(PointerEventData eventData)
@@ -117,11 +117,7 @@ namespace Components
         public void OnPointerClick(PointerEventData eventData)
         {
             if (_isHoldComplete && fireOnClickIfHold)  onClick?.Invoke();
-            else if (isPressed && !_isHoldComplete && cancelHoldIfClick)
-            {
-                OnHoldClick();
-                onClick?.Invoke();
-            }
+            else if (isPressed && !_isHoldComplete && cancelHoldIfClick) OnHoldClick();
             else if(!_isHoldComplete) onClick?.Invoke();
         }
 

@@ -1,4 +1,5 @@
 ﻿
+using Core.Audio;
 using Core.Machine;
 using Core.Symbols;
 using UnityEngine;
@@ -14,10 +15,12 @@ namespace Core
         //- static dependencies
         public static SlotMachine Machine => _instance.slotMachine;
         public static SymbolsMap SymbolsMap => _instance.symbolsMap;
+        public static AudioSystem Audio => _instance.audioSystem;
         
         //- exposed fields
         [SerializeField] private SlotMachine slotMachine;
         [SerializeField] private SymbolsMap symbolsMap;
+        [SerializeField] private AudioSystem audioSystem;
         [SerializeField] private GenerateType generateType;
         [SerializeField] private Vector2Int dimension;
         
@@ -30,6 +33,7 @@ namespace Core
             symbolsMap.ReleaseReferences();
             symbolsMap = null;
             slotMachine = null;
+            audioSystem = null;
         }
 
         private void Awake()
@@ -43,6 +47,7 @@ namespace Core
             //- entry point!
             slotMachine.onEstablished += Launch;
             slotMachine.Initialize();
+            audioSystem.Initialize();
             StartLoadingSymbols();
         }
 
@@ -61,6 +66,7 @@ namespace Core
         {
             if(!_isRun) return;
             slotMachine.Tick(Time.deltaTime);
+            audioSystem.Tick();
         }
     }
 }

@@ -10,13 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de77c3ae3f324b6e982bcb073d847b28, type: 3}
-  m_Name: Default Machine Config
+  m_Name: BottomBack
   m_EditorClassIdentifier: 
-  delayAmongSpin: 0.3
+  spinningDurationRange: {x: 1.5, y: 2.5}
+  forceStopSpin: 1
+  startSpinning: 0
+  endSpinning: 1
+  individuallyDelay: 0.5
+  autoSpinDelay: 0.5
   spacing: {x: 5, y: 0}
   padding: {x: 0, y: 0}
-  speed: 1.8
-  startSpinEase: 0
-  endSpinEase: 30
-  duration: 1.3
-  useBlurEffect: 0
+  speed: 2
+  endSpinEase: 38
+  endSpinYOffset: -300
+  duration: 0.34
+  enableAudio: 1
+  endSpinPitchMultiplier: 1

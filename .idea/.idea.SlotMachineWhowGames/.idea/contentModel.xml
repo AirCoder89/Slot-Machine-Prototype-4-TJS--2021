@@ -60,12 +60,24 @@
             </e>
           </e>
         </e>
+        <e p="Art" t="Include">
+          <e p="023_PostprocessingBlur" t="Include">
+            <e p="PostprocessingBlur.cs" t="Include" />
+            <e p="PostprocessingBlur.shader" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Components" t="Include">
             <e p="SpinButton.cs" t="Include" />
             <e p="ViewFades.cs" t="Include" />
+            <e p="ViewTweener.cs" t="Include" />
           </e>
           <e p="Core" t="Include">
+            <e p="Audio" t="Include">
+              <e p="AudioSystem.cs" t="Include" />
+              <e p="SfxList.cs" t="Include" />
+              <e p="SfxMachine.cs" t="Include" />
+            </e>
             <e p="BaseMonoBehaviour.cs" t="Include" />
             <e p="Column.cs" t="Include" />
             <e p="GenerateType.cs" t="Include" />
@@ -75,6 +87,7 @@
               <e p="SlotMachine.cs" t="Include" />
             </e>
             <e p="MachineController.cs" t="Include" />
+            <e p="SpinningType.cs" t="Include" />
             <e p="Symbols" t="Include">
               <e p="SymbolData.cs" t="Include" />
               <e p="SymbolsMap.cs" t="Include" />

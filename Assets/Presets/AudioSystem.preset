@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AudioSystem
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 134186493f63bde40b082e18e41bf024, type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: masterVolume
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[0].label
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[0].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: fb717180867dad8478421999835c8786, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[0].oneShot
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[0].range.x
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[0].range.y
+    value: 1.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[0].volume
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[0].pitch
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[0].loop
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[1].label
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[1].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: fb717180867dad8478421999835c8786, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[1].oneShot
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[1].range.x
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[1].range.y
+    value: 3.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[1].volume
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[1].pitch
+    value: 0.8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[1].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[2].label
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[2].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: c4390a6dc02bcbe42a2622ccf1ebcfee, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[2].oneShot
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[2].range.x
+    value: 0.5119728
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[2].range.y
+    value: 0.5119728
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[2].volume
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[2].pitch
+    value: 0.8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: sfxList.Array.data[2].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: testIndex
+    value: 1
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []
