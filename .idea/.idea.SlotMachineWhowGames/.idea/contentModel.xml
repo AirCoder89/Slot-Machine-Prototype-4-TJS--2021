@@ -60,12 +60,6 @@
             </e>
           </e>
         </e>
-        <e p="Art" t="Include">
-          <e p="023_PostprocessingBlur" t="Include">
-            <e p="PostprocessingBlur.cs" t="Include" />
-            <e p="PostprocessingBlur.shader" t="Include" />
-          </e>
-        </e>
         <e p="Scripts" t="Include">
           <e p="Components" t="Include">
             <e p="SpinButton.cs" t="Include" />

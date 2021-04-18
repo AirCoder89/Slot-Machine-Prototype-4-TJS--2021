@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 134186493f63bde40b082e18e41bf024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: 0.073
+  masterVolume: 0.428
   sfxList:
   - label: 0
     clip: {fileID: 8300000, guid: fb717180867dad8478421999835c8786, type: 3}
