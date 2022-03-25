@@ -46,6 +46,7 @@ namespace Core.Machine
             RandomSymbol();
             UpdatePosition();
             name = $"Slot [{_location.ToString()}]";
+            rectTransform.localScale = Vector3.one;
         }
 
         public void RandomSymbol()
