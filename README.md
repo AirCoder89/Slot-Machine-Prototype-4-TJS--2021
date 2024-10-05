@@ -1,5 +1,18 @@
 # Slot Machine Prototype 4 - TJS (2021)
 
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/628d98c6-0224-48a2-b3e3-321b5f48e681" alt="InspectMe Logo" width="100"></td>
+    <td>
+      🛠️ Boost your Unity workflows with <a href="https://divinitycodes.de/">InspectMe</a>! Our tool simplifies debugging with an intuitive tree view. Check it out! 👉 
+      <a href="https://assetstore.unity.com/packages/tools/utilities/inspectme-lite-advanced-debugging-code-clarity-283366">InspectMe Lite</a> - 
+      <a href="https://assetstore.unity.com/packages/tools/utilities/inspectme-pro-advanced-debugging-code-clarity-256329">InspectMe Pro</a>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## Introduction
 Welcome to my slot machine prototype! This is the fourth experiment in a series where I explore different animation techniques for slot machines. For this prototype, I've employed my custom tween library, **[Tween Job System (TJS)](https://github.com/AirCoder89/TJS-Tween-Job-System-)**, which is an optimized animation engine based on a job system. The usage of TJS is quite similar to DOTween, with a range of handy shortcut extensions that simplify animation tasks in Unity.
 
@@ -80,3 +93,15 @@ For those interested in the evolution of this project, here are links to the pre
 
 Feel free to explore and provide feedback or contributions to improve the prototype!
 
+---
+
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/628d98c6-0224-48a2-b3e3-321b5f48e681" alt="InspectMe Logo" width="100"></td>
+    <td>
+      🛠️ Boost your Unity workflows with <a href="https://divinitycodes.de/">InspectMe</a>! Our tool simplifies debugging with an intuitive tree view. Check it out! 👉 
+      <a href="https://assetstore.unity.com/packages/tools/utilities/inspectme-lite-advanced-debugging-code-clarity-283366">InspectMe Lite</a> - 
+      <a href="https://assetstore.unity.com/packages/tools/utilities/inspectme-pro-advanced-debugging-code-clarity-256329">InspectMe Pro</a>
+    </td>
+  </tr>
+</table>
