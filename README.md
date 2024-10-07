@@ -14,7 +14,7 @@
 ---
 
 ## Introduction
-Welcome to my slot machine prototype! This is the fourth experiment in a series where I explore different animation techniques for slot machines. For this prototype, I've employed my custom tween library, **[Tween Job System (TJS)](https://github.com/AirCoder89/TJS-Tween-Job-System-)**, which is an optimized animation engine based on a job system. The usage of TJS is quite similar to DOTween, with a range of handy shortcut extensions that simplify animation tasks in Unity.
+This is the fourth experiment in a series where I explore different animation techniques for slot machines. For this prototype, I've employed my custom tween library, **[Tween Job System (TJS)](https://github.com/AirCoder89/TJS-Tween-Job-System-)**, which is an optimized animation engine based on a job system. The usage of TJS is quite similar to DOTween, with a range of handy shortcut extensions that simplify animation tasks in Unity.
 
 **Video Demo**
 [![CLICK HERE](https://github.com/user-attachments/assets/33cefed9-e105-4933-a1a2-757b63595b95)](https://www.youtube.com/watch?v=OIwOSg_UdRI)
